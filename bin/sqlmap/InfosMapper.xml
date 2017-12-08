@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="writeandread">
+
+	<select id="select1" resultType="com.nge.vo.Content">
+		SELECT * FROM t_content
+	</select>
+	
+	<select id="selectName" parameterType="Integer" resultType="com.nge.vo.NameVO">
+		SELECT * FROM t_content_nameinfo WHERE `status`=#{status}
+	</select>
+
+
+	
+	<update id="upd" parameterType="com.nge.vo.Content">
+		UPDATE  t_content SET content=#{content} WHERE name=#{name}
+	</update>
+	
+	<select id="select2" parameterType="String" resultType="com.nge.vo.Content">
+		SELECT * FROM t_content WHERE name =#{name}
+	</select>
+</mapper>
